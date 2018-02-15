@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <% @feeds.each do |feed| %>
+        <div class="card mb-3">
+            <div class="card-header"><%= image_tag feed.user[:profile_picture], size: "50x50", class: 'rounded-circle' %> <p class="font-weight-bold"> <%= feed.user[:username] %> </p></div>
+            <% if feed.type == 'image' %>
+                <%= image_tag feed.images.standard_resolution.url, class: 'card-img-top' %>
+            <% else %>
+                <%= video_tag([feed.videos.standard_resolution.url, feed.videos.low_resolution.url], poster: feed.images.standard_resolution.url, controls: true, autobuffer: true) %>
+            <% end %>
+            <div class="card-body">
+                <h5 class="card-title"><%= feed.caption ? feed.caption[:text] : "Caption here" %></h5>
+                <p class="card-text"><small class="text-muted"><% if feed.location  %><span class="oi oi-location"></span> <%= feed.location[:name] %> | <% end %><%= feed.likes[:count] %> <span class="oi oi-heart"></span> | <%= feed.comments[:count] %> <span class="oi oi-comment-square"></span> | posted: <%= time_ago_in_words Time.at feed.created_time.to_i %> ago</small></p>
+            </div>
+        </div>
+    <% end %>
+</div>

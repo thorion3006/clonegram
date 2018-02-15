@@ -1,0 +1,48 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.wrapper {
+    padding: 5rem 0;
+}
+
+div.sidebar {
+    display: flex;
+    align-items: stretch;
+}
+
+aside#sidebar {
+    min-width: 12rem;
+    max-width: 12rem;
+    height: 85vh;
+    padding-right: 10px;
+    h5 {
+        padding-top: 5px;
+        margin-bottom: 2px;
+    }
+    li {
+        list-style: none;
+        display: block;
+    }
+    div {
+        padding-top: 10px;
+    }
+}
+
+div.filler {
+    width: 100%
+}
+
+li.nav-item a {
+    color: dimgray;
+}
+
+div.tab-content {
+    padding: 20px;
+}
+
+div.card-header {
+    p {
+        display: inline-block;
+    }
+}
